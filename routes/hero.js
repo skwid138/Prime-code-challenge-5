@@ -5,7 +5,16 @@ var Hero = require('../models/heroModel');
 // get all heros
 router.get('/', function(req, res) {
   // TODO: add code to return all heros from the db
-});
+  Hero.find({}, function(err, obj) { // queries the entire DB and returns all the data
+    if(err) {
+      console.log('Hero Find Error ->', err);
+      res.sendStatus(500);
+    } else {
+      console.log('Hero Find Results ->', obj);
+      res.send(obj); // sends DB data to client side service
+    } // end else
+  }); // end Find
+}); // end GET
 
 // post to create a new hero
 // DO NOT MODIFY
