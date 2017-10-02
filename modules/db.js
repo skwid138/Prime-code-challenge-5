@@ -6,7 +6,7 @@ var mongoURI = "mongodb://localhost:27017/heroDatabase"; // heroDatabase is the 
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.on('error', function (err) {
-    console.log('mongodb connection error:', err);
+  console.log('mongodb connection error:', err);
 });
 
 MongoDB.once('open', function () {
